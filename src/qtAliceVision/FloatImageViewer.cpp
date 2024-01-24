@@ -177,7 +177,7 @@ QVector4D FloatImageViewer::pixelValueAt(int x, int y)
         // qInfo() << "[QtAliceVision] FloatImageViewer::pixelValueAt(" << x << ", " << y << ") => no valid image";
         return QVector4D(0.0, 0.0, 0.0, 0.0);
     }
-    else if (x < 0 || x >= _image->width() || y < 0 || y >= _image->height())
+    else if (x < 0 || x >= _image->Width() || y < 0 || y >= _image->Height())
     {
         // qInfo() << "[QtAliceVision] FloatImageViewer::pixelValueAt(" << x << ", " << y << ") => out of range";
         return QVector4D(0.0, 0.0, 0.0, 0.0);
@@ -306,8 +306,8 @@ QSGNode* FloatImageViewer::updatePaintNode(QSGNode* oldNode, QQuickItem::UpdateP
                 const aliceVision::Vec3 fisheyeCircleParams(
                   intrinsicEquidistant->getCircleCenterX(), intrinsicEquidistant->getCircleCenterY(), intrinsicEquidistant->getCircleRadius());
 
-                const double width = _image->width() * pow(2.0, _downscaleLevel);
-                const double height = _image->height() * pow(2.0, _downscaleLevel);
+                const double width = _image->Width() * pow(2.0, _downscaleLevel);
+                const double height = _image->Height() * pow(2.0, _downscaleLevel);
                 const double aspectRatio = (width > height) ? width / height : height / width;
 
                 const double radiusInPercentage = (fisheyeCircleParams.z() / ((width > height) ? height : width)) * 2.0;
@@ -342,16 +342,16 @@ QSGNode* FloatImageViewer::updatePaintNode(QSGNode* oldNode, QQuickItem::UpdateP
     {
         _boundingRect = newBoundingRect;
 
-        const double windowRatio = _boundingRect.width() / _boundingRect.height();
-        const float textureRatio = static_cast<float>(_textureSize.width()) / static_cast<float>(_textureSize.height());
+        const double windowRatio = _boundingRect.Width() / _boundingRect.Height();
+        const float textureRatio = static_cast<float>(_textureSize.Width()) / static_cast<float>(_textureSize.Height());
         QRectF geometryRect = _boundingRect;
         if (windowRatio > textureRatio)
         {
-            geometryRect.setWidth(geometryRect.height() * textureRatio);
+            geometryRect.setWidth(geometryRect.Height() * textureRatio);
         }
         else
         {
-            geometryRect.setHeight(geometryRect.width() / textureRatio);
+            geometryRect.setHeight(geometryRect.Width() / textureRatio);
         }
         geometryRect.moveCenter(_boundingRect.center());
 
