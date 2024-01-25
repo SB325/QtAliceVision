@@ -19,7 +19,7 @@ void IOThread::run()
     QMutexLocker lock(&_mutex);
     try
     {
-        if (!aliceVision::sfmDataIO::load(
+        if (!aliceVision::sfmDataIO::Load(
               _sfmData,
               _source.toLocalFile().toStdString(),
               aliceVision::sfmDataIO::ESfMData(aliceVision::sfmDataIO::ESfMData::VIEWS | aliceVision::sfmDataIO::ESfMData::INTRINSICS |
