@@ -22,7 +22,7 @@ FloatTexture::~FloatTexture()
 void FloatTexture::setImage(std::shared_ptr<FloatImage>& image)
 {
     _srcImage = image;
-    _textureSize = {_srcImage->width(), _srcImage->height()};
+    _textureSize = {_srcImage->Width(), _srcImage->Height()};
     _dirty = true;
     _dirtyBindOptions = true;
     _mipmapsGenerated = false;
