@@ -342,7 +342,7 @@ QSGNode* FloatImageViewer::updatePaintNode(QSGNode* oldNode, QQuickItem::UpdateP
     {
         _boundingRect = newBoundingRect;
 
-        const double windowRatio = _boundingRect.Width() / _boundingRect.Height();
+        const double windowRatio = _boundingRect.width() / _boundingRect.Height();
         const float textureRatio = static_cast<float>(_textureSize.Width()) / static_cast<float>(_textureSize.Height());
         QRectF geometryRect = _boundingRect;
         if (windowRatio > textureRatio)
