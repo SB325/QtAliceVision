@@ -692,12 +692,12 @@ void FeaturesViewer::updateReconstruction()
                 }
 
                 auto& featureDatas = featureDatasIt->second;
-                if (observation.getFeatureId() >= featureDatas.size())
+                if (observation.id_feat >= featureDatas.size())
                 {
                     continue;
                 }
 
-                auto& data = featureDatas[observation.getFeatureId()];
+                auto& data = featureDatas[observation.id_feat];
 
                 data.hasLandmark = true;
 
