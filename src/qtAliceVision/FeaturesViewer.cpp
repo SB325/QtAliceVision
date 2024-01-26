@@ -683,7 +683,7 @@ void FeaturesViewer::updateReconstruction()
 
         for (const auto& [_, landmark] : landmarks)
         {
-            for (const auto& [viewId, observation] : landmark.getObservations())
+            for (const auto& [viewId, observation] : landmark.observations())
             {
                 const auto featureDatasIt = _mreconstruction.featureDatasPerView.find(viewId);
                 if (featureDatasIt == _mreconstruction.featureDatasPerView.end())
